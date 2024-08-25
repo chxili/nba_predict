@@ -191,12 +191,12 @@ def saveModel(model, filename):
 # Can import the statistics and predictions for each game from a csv file or can be created on their own
 def createModel(startYear=None, startMonth=None, startDay=None, endYear=None, endMonth=None, endDay=None, season='2018-19', startOfSeason = '10/16/2018', filename='model.pkl'):
 
-    # allGames = getTrainingSet(startYear, startMonth, startDay, endYear, endMonth, endDay, season, startOfSeason)  # Unnecessary if using data from CSV file
+    allGames = getTrainingSet(startYear, startMonth, startDay, endYear, endMonth, endDay, season, startOfSeason)  # Unnecessary if using data from CSV file
 
-    # allGamesDataframe = createDataFrame(allGames)  # Unnecessary if using data from CSV file
+    allGamesDataframe = createDataFrame(allGames)  # Unnecessary if using data from CSV file
 
     setCurrentWorkingDirectory('Data')
-    allGamesDataframe = pd.read_csv('COMBINEDgamesWithInfo2016-19.csv')  # Should be commented out if needing to obtain data on different range of games
+    allGamesDataframe = pd.read_csv('COMBINEDgamesWithInfo'+season+'.csv')  # Should be commented out if needing to obtain data on different range of games
 
     logRegModel = performLogReg(allGamesDataframe)
 
