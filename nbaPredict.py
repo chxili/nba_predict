@@ -51,7 +51,7 @@ def predictDailyGames(currentDate, season, startOfSeason):
 
     justZScoreDifs = gamesWithZScoreDifs.loc[:,'W_PCT':'TS_PCT']  # Slices only the features used in the model
 
-    with open('finalized_model.pkl', 'rb') as file:  # Change filename here if model is named differently
+    with open('model.pkl', 'rb') as file:  # Change filename here if model is named differently
         pickleModel = pickle.load(file)
 
     predictions = pickleModel.predict_proba(justZScoreDifs)  # Predicts the probability that the home team loses/wins

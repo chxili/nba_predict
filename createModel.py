@@ -201,3 +201,5 @@ def createModel(startYear=None, startMonth=None, startDay=None, endYear=None, en
     logRegModel = performLogReg(allGamesDataframe)
 
     saveModel(logRegModel, filename)
+
+# createModel()
